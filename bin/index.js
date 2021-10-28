@@ -5,7 +5,7 @@ const modelutils = require('../utils/model')
 const {createServer} = require('../utils/server')
 
 
-
+// command to create a model
 yargs.command('model <lemodel> [typedb] [fields..]', 'create a model', (yargs) => {
     yargs.positional('lemodel', {
       describe: 'URL to fetch content from',
@@ -23,7 +23,7 @@ yargs.command('model <lemodel> [typedb] [fields..]', 'create a model', (yargs) =
 })
 
 
-
+// command to create a server
 yargs.command('server <nameofserver>', 'create a server', (yargs) => {
     yargs.positional('nameofserver', {
       describe: 'Name of the server file without extension',
