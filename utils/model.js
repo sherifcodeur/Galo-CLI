@@ -80,7 +80,7 @@ const createModel = async (modelToCreate ,typedb,fields)=>{
 
 }
 
-
+// for sequelize attributes put them in a string to be used in sequelize cli
 const fieldsinstring = (arr)=>{
 
     let thestring = ''
