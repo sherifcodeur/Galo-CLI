@@ -12,12 +12,12 @@ yargs.command('model <lemodel> [typedb] [fields..]', 'create a model', (yargs) =
       }).positional('typedb', {
       describe: 'type of db - choices: mongoose - sequelizemysql - sequelizepg',    
      }).positional('fields', {
-        describe: 'fields wanted for the model - usage: namefield-typefield-required  example: title-string-true',
+        describe: 'fields wanted for the model - usage: namefield-typefield-required  example: title-string-true body-text-false',
         type:'array'    
        })   
    },(argv) => {
-    // console.log('this command will be run by default ' +argv.lemodel +argv.fields)
-     modelutils.createModel(argv.lemodel,"mongoose")
+     //console.log(argv.fields)
+     modelutils.createModel(argv.lemodel,argv.typedb,argv.fields)
 
 })
 

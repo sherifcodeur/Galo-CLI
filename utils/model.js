@@ -11,7 +11,7 @@ const {renderModelTemplateSequelizepg} = require('../templates/models/model-sequ
 
 
 // create a model - argument model name -if no models directory exists we create it
-const createModel = (modelToCreate ,typedb)=>{
+const createModel = (modelToCreate ,typedb,fields)=>{
 
 
     if(typedb === "mongoose"){
@@ -22,7 +22,7 @@ const createModel = (modelToCreate ,typedb)=>{
                     res=>{
 
                     
-                        fs.writeFile(`models/${modelToCreate}.js`, renderModelTemplateMongoose(modelToCreate),(err)=>{
+                        fs.writeFile(`models/${modelToCreate}.js`, renderModelTemplateMongoose(modelToCreate,fields),(err)=>{
 
                             if(err){
 
@@ -65,7 +65,7 @@ const createModel = (modelToCreate ,typedb)=>{
                 )
                 .catch(err=>console.log(err))
 
-    }else if(typedb ==="sequelize-pg"){
+    }else if(typedb ==="sequelizepg"){
 
         createFile(`${modelToCreate}.js`,"models")
                 .then(

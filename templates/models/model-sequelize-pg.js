@@ -4,7 +4,7 @@ const renderModelTemplateSequelizepg = (modelName , fields=null) =>{
     let modelNameLower = modelName.toLowerCase();
 
     let modeltemplate = `
-    // ${modelName} Model
+    // ${modelName} Model for pg
 
 
     
