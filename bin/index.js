@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs')
-const modelutils = require('./utils/model')
-const {createServer} = require('./utils/server')
+const modelutils = require('../utils/model')
+const {createServer} = require('../utils/server')
 
 
 
