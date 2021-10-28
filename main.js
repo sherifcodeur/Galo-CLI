@@ -12,7 +12,7 @@ yargs.command('model <lemodel> [typedb] [fields..]', 'create a model', (yargs) =
       }).positional('typedb', {
       describe: 'type of db - choices: mongoose - sequelizemysql - sequelizepg',    
      }).positional('fields', {
-        describe: 'fields wanted for the model - usage: namefield-typefield-required  example: title-string-true body-text-false',
+        describe: 'fields wanted for the model - usage: namefield-typefield-required  example: title-string-true body-text-false (for mongoose) &&  firstName:string (for sequelize)',
         type:'array'    
        })   
    },(argv) => {

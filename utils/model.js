@@ -42,10 +42,10 @@ const createModel = async (modelToCreate ,typedb,fields)=>{
 
     }else if(typedb ==="sequelizemysql"){
 
-        
+        let fieldsforcli = fieldsinstring(fields)
         await createDirectory('models')
         await createDirectory('migrations')
-        exec(`npx sequelize-cli model:generate --name ${modelToCreate} --attributes firstName:string`, (error, data, getter) => {
+        exec(`npx sequelize-cli model:generate --name ${modelToCreate} --attributes ${fieldsforcli}`, (error, data, getter) => {
             if(error){
                 console.log("error",error.message);
                 return;
@@ -58,9 +58,11 @@ const createModel = async (modelToCreate ,typedb,fields)=>{
 
     }else if(typedb ==="sequelizepg"){
 
+        let fieldsforcli = fieldsinstring(fields)
+
         await createDirectory('models')
         await createDirectory('migrations')
-        exec(`npx sequelize-cli model:generate --name ${modelToCreate} --attributes firstName:string`, (error, data, getter) => {
+        exec(`npx sequelize-cli model:generate --name ${modelToCreate} --attributes ${fieldsforcli}`, (error, data, getter) => {
             if(error){
                 console.log("error",error.message);
                 return;
@@ -76,6 +78,29 @@ const createModel = async (modelToCreate ,typedb,fields)=>{
   
 
 
+}
+
+
+const fieldsinstring = (arr)=>{
+
+    let thestring = ''
+
+
+    arr.forEach(function(element, index) {
+        if ( index != 0 ) {
+            
+            thestring += ',' + element
+        }else{
+
+            thestring += ' ' + element
+        }
+
+
+      });
+
+    console.log("le final string",thestring)
+
+    return thestring
 }
 
 
