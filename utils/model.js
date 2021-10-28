@@ -1,4 +1,5 @@
 const fs = require('fs')
+const { exec } = require("child_process");
 
 const {createDirectory , createFile} = require('./filesystem')
 
@@ -11,7 +12,7 @@ const {renderModelTemplateSequelizepg} = require('../templates/models/model-sequ
 
 
 // create a model - argument model name -if no models directory exists we create it
-const createModel = (modelToCreate ,typedb,fields)=>{
+const createModel = async (modelToCreate ,typedb,fields)=>{
 
 
     if(typedb === "mongoose"){
@@ -42,54 +43,31 @@ const createModel = (modelToCreate ,typedb,fields)=>{
     }else if(typedb ==="sequelizemysql"){
 
         
-        createFile(`${modelToCreate}.js`,"models")
-                .then(
+        await createDirectory('models')
+        await createDirectory('migrations')
+        exec(`npx sequelize-cli model:generate --name ${modelToCreate} --attributes firstName:string`, (error, data, getter) => {
+            if(error){
+                console.log("error",error.message);
+                return;
+            }
+           
+        
+        });
 
-                    res=>{
 
-                    
-                        fs.writeFile(`models/${modelToCreate}.js`, renderModelTemplateSequelizemysql(modelToCreate),(err)=>{
-
-                            if(err){
-
-                                console.log(err)
-                            }else{
-
-                                console.log("succes writing template")
-                            }
-
-                        })
-                    
-                    
-                    }
-                )
-                .catch(err=>console.log(err))
 
     }else if(typedb ==="sequelizepg"){
 
-        createFile(`${modelToCreate}.js`,"models")
-                .then(
-
-                    res=>{
-
-                    
-                        fs.writeFile(`models/${modelToCreate}.js`, renderModelTemplateSequelizepg(modelToCreate),(err)=>{
-
-                            if(err){
-
-                                console.log(err)
-                            }else{
-
-                                console.log("succes writing template")
-                            }
-
-                        })
-                    
-                    
-                    }
-                )
-                .catch(err=>console.log(err))
-
+        await createDirectory('models')
+        await createDirectory('migrations')
+        exec(`npx sequelize-cli model:generate --name ${modelToCreate} --attributes firstName:string`, (error, data, getter) => {
+            if(error){
+                console.log("error",error.message);
+                return;
+            }
+           
+        
+        });
 
     }else{
 
