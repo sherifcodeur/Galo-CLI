@@ -87,4 +87,13 @@ example : `galo database connection`
 
 it will create the connection file for mongoose 
 
-for sequelize it s already done when you initialize with `npx sequelize-cli init`
+for sequelize it s already done when you initialize with `npx sequelize-cli init` (it creates all folders)
+
+## command: controller
+
+#### mongoose 
+
+* for pure api project a CRUD:
+
+* for rendering with ejs
+
