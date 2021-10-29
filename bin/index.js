@@ -11,7 +11,7 @@ yargs.command('model <lemodel> [typedb] [fields..]', 'create a model', (yargs) =
       describe: 'URL to fetch content from',
       type: 'string',     
       }).positional('typedb', {
-      describe: 'type of db - choices: mongoose - sequelizemysql - sequelizepg',    
+      describe: 'type of db - choices: mongoose - sequelize',    
      }).positional('fields', {
         describe: 'fields wanted for the model - usage: namefield-typefield-required  example: title-string-true body-text-false (for mongoose) &&  firstName:string (for sequelize)',
         type:'array'    

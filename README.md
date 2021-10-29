@@ -12,9 +12,11 @@ Galo has 3 commands :
 
 
 
-## model command - usage : galo model ModelName typeofdatabase fieldsforschema
+## command: model 
 
-you have two choices for your database : mongoose or sequelize
+- usage : **galo model ModelName typeofdatabase fieldsforschema**
+
+you have two choices for your database : **mongoose** or **sequelize**
 
 - mongoose which is for mongodb databases
 
@@ -25,4 +27,4 @@ you have two choices for your database : mongoose or sequelize
 
 the fields for the schema has to be entered in the form : nameoffield-typeoffield-requiredfield
 
-example of command: galo model User mongoose firstName-string-true email-string-true age-number-false
+example of command: `<galo model User mongoose firstName-string-true email-string-true age-number-false>`

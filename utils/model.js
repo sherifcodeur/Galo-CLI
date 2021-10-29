@@ -40,7 +40,7 @@ const createModel = async (modelToCreate ,typedb,fields)=>{
                 )
                 .catch(err=>console.log(err))
 
-    }else if(typedb ==="sequelizemysql"){
+    }else if(typedb ==="sequelize"){
 
         let fieldsforcli = fieldsinstring(fields)
         await createDirectory('models')
@@ -55,25 +55,10 @@ const createModel = async (modelToCreate ,typedb,fields)=>{
         });
 
 
-
-    }else if(typedb ==="sequelizepg"){
-
-        let fieldsforcli = fieldsinstring(fields)
-
-        await createDirectory('models')
-        await createDirectory('migrations')
-        exec(`npx sequelize-cli model:generate --name ${modelToCreate} --attributes ${fieldsforcli}`, (error, data, getter) => {
-            if(error){
-                console.log("error",error.message);
-                return;
-            }
-           
-        
-        });
 
     }else{
 
-        throw Error("pas la bonne base")
+        console.log("please choose a database : mongoose or sequelize")
     }
   
 
