@@ -1,5 +1,14 @@
 # Galo-CLI
+
 a CLI to help in our NODEjs Express Projects 
+
+Galo has 3 commands :
+
+* model : creates a model with its schema 
+
+* server : create the nodejs express server file 
+
+* controller : creates a controller for your model
 
 
 
