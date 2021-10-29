@@ -93,7 +93,13 @@ for sequelize it s already done when you initialize with `npx sequelize-cli init
 
 #### mongoose 
 
-* for pure api project a CRUD:
+* for pure api project a CRUD: - optional: pagination
 
-* for rendering with ejs
+* for rendering with ejs - optional: pagination
+
+#### sequelize 
+
+* for pure api project : CRUD - optional: pagination
+
+* for rendering with ejs - optional: pagination
 
