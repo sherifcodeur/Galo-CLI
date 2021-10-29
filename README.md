@@ -15,7 +15,7 @@ Galo has 3 commands :
 
 Depending on the database you want to use you might need to do some initializations :
 
-###### Mongoose : 
+#### Mongoose : 
 
 - Make the package.json with `npm init`
 - Install some important libraries `npm install express dotenv`
@@ -27,7 +27,7 @@ Depending on the database you want to use you might need to do some initializati
 - Now you can create models controllers and other files 
 
 
-###### Sequelize : 
+#### Sequelize : 
 
 - Make the package.json with `npm init`
 - Install some important libraries `npm install express dotenv`
