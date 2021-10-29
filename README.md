@@ -32,8 +32,9 @@ Depending on the database you want to use you might need to do some initializati
 - Make the package.json with `npm init`
 - Install some important libraries `npm install express dotenv`
 - install sequelize with `npm install sequelize`
+- you need to initialize sequelize : `npx sequelize-cli init`
 - Create the server file : _see the server command_
-- you need to initialize sequelize : `npx sequelize-cli`
+
 - create the special files : gitignore readme and env files
 
 - Now you can create models controllers and other files 
@@ -74,3 +75,16 @@ example of command : `galo model User sequelize firstName-String email-String`
 two types of databases : **mongoose** or **sequelize**
 
 example of command : `galo server server mongoose`
+
+
+## command: database
+
+To use only with mongoose 
+
+usage: **galo database filename**
+
+example : `galo database connection`
+
+it will create the connection file for mongoose 
+
+for sequelize it s already done when you initialize with `npx sequelize-cli init`

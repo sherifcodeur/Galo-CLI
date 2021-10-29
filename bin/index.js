@@ -3,6 +3,7 @@
 const yargs = require('yargs')
 const modelutils = require('../utils/model')
 const {createServer} = require('../utils/server')
+const {createDatabase} = require('../utils/database')
 
 
 // command to create a model
@@ -39,14 +40,15 @@ yargs.command('server <nameofserver> [typedb]', 'create a server', (yargs) => {
 
 
 
-    yargs.command({
+// command to create a server
+yargs.command('database <nameoffile> ', 'create a database connexion file for mongoose', (yargs) => {
+    yargs.positional('nameoffile', {
+      describe: 'File name for the database connexion file',
+      type: 'string',     
+      })
+   },(argv) => {
+    createDatabase(argv.nameoffile)
 
-        command:'controller',
-        describe:'create a controller',
-    
-        handler:function(){
-            console.log('creating a new controller')
-        }
-    })    .help()
+})  .help()
     .alias('h','help')
     .argv
