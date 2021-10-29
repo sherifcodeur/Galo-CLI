@@ -1,7 +1,7 @@
 
 const {createFile} = require('./filesystem')
 
-const renderDatabaseTemplate = require('../templates/database')
+const {renderDatabaseTemplate} = require('../templates/database')
 
 const fs = require('fs')
 
@@ -48,3 +48,6 @@ const createDatabase = async (nameOfFile)=>{
 
 
 }
+
+
+module.exports = {createDatabase}

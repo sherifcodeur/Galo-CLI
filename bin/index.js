@@ -40,11 +40,11 @@ yargs.command('server <nameofserver> [typedb]', 'create a server', (yargs) => {
 
 
 
-// command to create a server
-yargs.command('database <nameoffile> ', 'create a database connexion file for mongoose', (yargs) => {
+// command to create a database
+yargs.command('database <nameoffile>', 'create a database connexion file for mongoose', (yargs) => {
     yargs.positional('nameoffile', {
       describe: 'File name for the database connexion file',
-      type: 'string',     
+      type: 'string'     
       })
    },(argv) => {
     createDatabase(argv.nameoffile)
