@@ -11,6 +11,35 @@ Galo has 3 commands :
 * controller : creates a controller for your model
 
 
+## BEFORE USING
+
+Depending on the database you want to use you might need to do some initializations :
+
+###### Mongoose : 
+
+- Make the package.json with `npm init`
+- Install some important libraries `npm install express dotenv`
+- install mongoose with `npm install mongoose`
+- Create the server file : _see the server command_
+- Create the database connection file
+- create the special files : gitignore readme and env files
+
+- Now you can create models controllers and other files 
+
+
+###### Sequelize : 
+
+- Make the package.json with `npm init`
+- Install some important libraries `npm install express dotenv`
+- install sequelize with `npm install sequelize`
+- Create the server file : _see the server command_
+- you need to initialize sequelize : `npx sequelize-cli`
+- create the special files : gitignore readme and env files
+
+- Now you can create models controllers and other files 
+
+
+
 
 ## command: model 
 
@@ -38,7 +67,7 @@ example of command : `galo model User sequelize firstName-String email-String`
 
 
 
-## command server
+## command: server
 
 -usage : **galo server filename typeofdb**
 
