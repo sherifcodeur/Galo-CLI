@@ -27,4 +27,10 @@ you have two choices for your database : **mongoose** or **sequelize**
 
 the fields for the schema has to be entered in the form : nameoffield-typeoffield-requiredfield
 
-example of command: `<galo model User mongoose firstName-string-true email-string-true age-number-false>`
+example of command: `galo model User mongoose firstName-string-true email-string-true age-number-false`
+
+### for sequelize 
+
+the fields for the schema has to be entered in the form : nameoffield:typeoffield
+
+example of command : `galo model User sequelize firstName-String email-String`
