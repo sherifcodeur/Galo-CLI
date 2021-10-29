@@ -4,14 +4,14 @@ const fs = require('fs')
 
 const {renderServerTemplate} = require('../templates/server')
 
-const createServer = async (nameOfFile)=>{
+const createServer = async (nameOfFile,typedb)=>{
 
     createFile(`${nameOfFile}.js`)
     .then(
 
         res=>{
 
-            fs.writeFile(`${nameOfFile}.js`, renderServerTemplate(),(err)=>{
+            fs.writeFile(`${nameOfFile}.js`, renderServerTemplate(typedb),(err)=>{
 
                 if(err){
 

@@ -1,13 +1,45 @@
 
-const renderServerTemplate = () =>{
+const renderServerTemplate = (typedb) =>{
 
-   
+  let dbtext = '' ;
+  let listenport = '';
+  let connect = '';
+
+   if (typedb == "mongoose"){
+
+      dbtext = "const dbconnect = require('./database/connection');"
+      listenport = ` // app listens on the selected Port
+      app.listen(PORT, () => {
+        console.log("Server listening ")
+      })`;
+      connect = `    // connect to the database
+      dbconnect;`
+   }
+
+   if(typedb =="sequelize"){
+
+    dbtext = `    // db with sequelize 
+    const db = require('./models');`
+
+    listenport = ` // app listens on the selected Port
+    db.sequelize.sync().then(()=>{
+
+        app.listen(PORT, () => {
+          console.log("Server listening ")
+        })
+
+    })`
+    
+
+   }
 
     let servertemplate = `
     // importing dependencies
     const express = require('express');
     const dotenv = require('dotenv').config();
-    const dbconnect = require('./database/connection');
+    
+
+    ${dbtext}
     
     //importing routes - example company routes -
     //const companyRoutes = require('./routes/companyRoutes');
@@ -19,8 +51,7 @@ const renderServerTemplate = () =>{
     // initializing express application
     const app = express();
     
-    // connect to the database
-    dbconnect;
+  ${connect}
     
     
     
@@ -40,10 +71,7 @@ const renderServerTemplate = () =>{
     // })
     
 
-    // app listens on the selected Port
-    app.listen(PORT, () => {
-      console.log("Server listening ")
-    })
+   ${listenport}
     `
 
     return servertemplate;
