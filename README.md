@@ -20,7 +20,7 @@ you have two choices for your database : **mongoose** or **sequelize**
 
 - mongoose which is for mongodb databases
 
-- sequelize for mysql and postgresql databases
+- sequelize an ORM for mysql and postgresql databases
 
 
 ### for mongoose : 
@@ -34,3 +34,14 @@ example of command: `galo model User mongoose firstName-string-true email-string
 the fields for the schema has to be entered in the form : nameoffield:typeoffield
 
 example of command : `galo model User sequelize firstName-String email-String`
+
+
+
+
+## command server
+
+-usage : **galo server filename typeofdb**
+
+two types of databases : **mongoose** or **sequelize**
+
+example of command : `galo server server mongoose`
