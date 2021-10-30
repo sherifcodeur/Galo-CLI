@@ -57,13 +57,19 @@ yargs.command('database <nameoffile>', 'create a database connexion file for mon
 yargs.command('controller <nameofmodel> [typedb] [typeofcrud] [paginationtype]', 'create a controller', (yargs) => {
   yargs.positional('nameofmodel', {
     describe: 'Name of the model for which you create a controller',
-    type: 'string',     
+    type: 'string',       
     }).positional('typedb', {
       describe: 'type of db - choices: mongoose - sequelize (attention faire npx sequelize_cli init  avant tout)', 
       type:'string'   
+     }).positional('typeofcrud', {
+      describe: 'type of crud- choices: api | ejs', 
+      type:'string'   
+     }).positional('paginationtype', {
+      describe: 'pagination for get and search - choices: none | cursor | skip', 
+      type:'string'   
      })
  },(argv) => {
-  createController(argv.nameofserver,argv.typedb)
+  createController(argv.nameofmodel,argv.typedb,argv.typeofcrud,argv.paginationtype)
 
 })
 

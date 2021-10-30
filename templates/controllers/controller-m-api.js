@@ -2,6 +2,8 @@ const pluralize = require('pluralize')
 
 const renderControllerTemplatemapi = (modelName) =>{
 
+    
+
     let modelNameLower = modelName.toLowerCase();
     let modelNameLowerPlural = pluralize(modelNameLower);
 
@@ -9,11 +11,15 @@ const renderControllerTemplatemapi = (modelName) =>{
 
     let controllertemplate =`
     
-    const ${modelName} = require('../models/${modelName}')
+const ${modelName} = require('../models/${modelName}')
+
 // retrieve all ${modelNameLowerPlural} in the database
 const ${modelNameLower}_get = async (req,res)=>{
+
     let response = {};
-    // this code is to fetch all ${modelNameLowerPlural} withtout pagination
+
+
+    // this code is to fetch all ${modelNameLowerPlural} without pagination-----------------
     // try {
     //     const all${modelName} = await ${modelName}.find();
     //     if(! all${modelName}){
@@ -27,8 +33,9 @@ const ${modelNameLower}_get = async (req,res)=>{
     //     // there is an error we send status 500
     //     res.status(500).send(error);        
     // }
+    // end without pagination--------------------------
     
-    // fetching all${modelNameLowerPlural} with cursor based pagination
+    // fetching all${modelNameLowerPlural} with cursor based pagination -----------------
     ${modelName}.paginate({
         limit: 1,
         previous: req.query.previous || null,
@@ -36,7 +43,10 @@ const ${modelNameLower}_get = async (req,res)=>{
     
     })
     .then((result) => {
+
         console.log(result);
+
+
         const links = {};
         if (result.hasNext) {
             links.next = ` + "`${process.env.BASE_URL}:${process.env.PORT}/api/"+`${modelNameLower}`+"?next=${result.next}`;"+`
@@ -47,11 +57,58 @@ const ${modelNameLower}_get = async (req,res)=>{
         //console.log("les links",links)
         res.links(links);
         res.status(200).send(result);
+
       }).catch(err=>{
           
         res.status(200).send(response);
+
       });
-    // end of fetching with pagination  
+    // end of fetching with cursor based pagination -------------------------------------- 
+
+
+    // // pagination with skip limit method no need of plugins--------------------
+    // try {
+
+    //     // the page size , how many rows we want
+    //     let limit = parseInt(req.query.limit);
+    //     //console.log("la limit",limit)
+
+    //     //how many rows to skip before showing
+    //     let offset = parseInt(req.query.offset);
+    //     //console.log("offset",offset)
+
+    //     if(!offset){           
+    //         offset = 0  }
+
+    //     if(!limit){
+    //         limit = 5
+    //     }
+
+    //     const all${modelName} = await ${modelName}.find()
+    //                                     .skip(offset)
+    //                                     .limit(limit)
+    //     const ${modelNameLowerPlural}Count= await ${modelName}.count();
+
+    //     const totalPages = Math.ceil(${modelNameLowerPlural}Count/limit)
+    //     const currentPage = Math.ceil(offset / limit)+1
+
+    //     res.status(200).send({
+    //         data:all${modelName},
+    //         paging:{
+    //             total:${modelNameLowerPlural}Count,
+    //             page:currentPage,
+    //             pages:totalPages
+    //         }
+    //     })        
+    // } catch (error) {
+    //     console.log("error",error)
+    //     res.status(500).send({data:null})        
+    // }
+
+    // // end of pagination with skip limit--------------------------
+
+
+
 }
 // add a new ${modelNameLower} to the database
 const ${modelNameLower}_post = async (req,res)=>{
@@ -164,7 +221,7 @@ return controllertemplate
 }
 
 
-module.exports = renderControllerTemplatemapi;
+module.exports = {renderControllerTemplatemapi};
 
 
 

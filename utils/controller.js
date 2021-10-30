@@ -17,7 +17,7 @@ if(typedb =="mongoose" && typecrud=="api"){
 
                 res=>{
 
-                    fs.writeFile(`controllers/${nameOfModel}Controller.js`,renderControllerTemplatemapi(),(err)=>{
+                    fs.writeFile(`controllers/${nameOfModel}Controller.js`,renderControllerTemplatemapi(nameOfModel),(err)=>{
 
 
                     if(err){

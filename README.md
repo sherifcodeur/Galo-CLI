@@ -25,10 +25,10 @@ Depending on the database you want to use you might need to do some initializati
 #### Mongoose : 
 
 - Make the package.json with `npm init`
-- Install some important libraries `npm install express dotenv`
+- Install some important libraries `npm install express dotenv pluralize`
 - install mongoose with `npm install mongoose`
 - Create the server file : _see the server command_
-- Create the database connection file
+- Create the database connection file _see the database command_
 - create the special files : gitignore readme and env files
 
 - Now you can create models controllers and other files 
