@@ -91,15 +91,27 @@ for sequelize it s already done when you initialize with `npx sequelize-cli init
 
 ## command: controller
 
+usage: **galo controller modelName typeofdatabase typeofcrud paginationType**
+
+* modelName : the name of the model for which you want to create a controller CRUD , it will also name the controller automatically :modelNameController
+
+* typeofdatabase : two choices : mongoose | sequelize
+
+* typeofcrud : two choices , in fact it is the rendering we want : api or ejs
+
+* paginationType : three choices : none | cursor | skip  this will be used in the index (show all and search)
+
+example : `galo controller User mongoose api skip`
+
 #### mongoose 
 
-* for pure api project a CRUD: - optional: pagination
+* for pure api project 
 
-* for rendering with ejs - optional: pagination
+* for rendering with ejs rendering
 
 #### sequelize 
 
-* for pure api project : CRUD - optional: pagination
+* for pure api project 
 
-* for rendering with ejs - optional: pagination
+* for rendering with ejs rendering
 
