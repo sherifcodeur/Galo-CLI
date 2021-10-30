@@ -1,21 +1,20 @@
-
 const {createFile} = require('./filesystem')
 
-const {renderDatabaseTemplate} = require('../templates/database')
+const {renderControllerTemplate} = require('../templates/controller')
 
 const fs = require('fs')
 
-const createDatabase = async (nameOfFile)=>{
+
+const createController = async (nameOfFile)=>{
 
 
-
-
-    createFile(`${nameOfFile}.js`,"database")
+    createFile(`${nameOfFile}.js`,"controllers")
     .then(
 
         res=>{
 
-            fs.writeFile(`database/${nameOfFile}.js`,renderDatabaseTemplate(),(err)=>{
+            fs.writeFile(`controllers/${nameOfFile}.js`,renderControllerTemplate(),(err)=>{
+
 
             if(err){
 
@@ -40,13 +39,6 @@ const createDatabase = async (nameOfFile)=>{
 
 
 
-
-
-
-
-
-
 }
 
-
-module.exports = {createDatabase}
+module.exports = {createController}

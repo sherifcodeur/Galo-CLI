@@ -2,13 +2,20 @@
 
 a CLI to help in our NODEjs Express Projects 
 
-Galo has 3 commands :
+Galo has 4 commands :
 
 * model : creates a model with its schema 
 
 * server : create the nodejs express server file 
 
+* database : only for mongoose : create connection file (no need for sequelize)
+
 * controller : creates a controller for your model
+
+#### **HOW TO INSTALL**
+
+1. Clone this repo on your computer
+1. Go on the root folder of the repo and do `npm install -g`
 
 
 ## BEFORE USING
