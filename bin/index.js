@@ -4,6 +4,7 @@ const yargs = require('yargs')
 const modelutils = require('../utils/model')
 const {createServer} = require('../utils/server')
 const {createDatabase} = require('../utils/database')
+const { createController } = require('../utils/controller')
 
 
 // command to create a model
@@ -49,6 +50,25 @@ yargs.command('database <nameoffile>', 'create a database connexion file for mon
    },(argv) => {
     createDatabase(argv.nameoffile)
 
-})  .help()
+}) 
+
+
+// command to create a controller
+yargs.command('controller <nameofmodel> [typedb] [typeofcrud] [paginationtype]', 'create a controller', (yargs) => {
+  yargs.positional('nameofmodel', {
+    describe: 'Name of the model for which you create a controller',
+    type: 'string',     
+    }).positional('typedb', {
+      describe: 'type of db - choices: mongoose - sequelize (attention faire npx sequelize_cli init  avant tout)', 
+      type:'string'   
+     })
+ },(argv) => {
+  createController(argv.nameofserver,argv.typedb)
+
+})
+
+
+
+.help()
     .alias('h','help')
     .argv

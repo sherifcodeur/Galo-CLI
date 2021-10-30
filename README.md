@@ -37,7 +37,7 @@ Depending on the database you want to use you might need to do some initializati
 #### Sequelize : 
 
 - Make the package.json with `npm init`
-- Install some important libraries `npm install express dotenv`
+- Install some important libraries `npm install express dotenv pluralize`
 - install sequelize with `npm install sequelize`
 - you need to initialize sequelize : `npx sequelize-cli init`
 - Create the server file : _see the server command_
