@@ -2,7 +2,7 @@ const pluralize = require('pluralize')
 
 // template for mongoose and ejs view engine
 
-const renderControllerTemplatemejs = (modelName)=>{
+const renderControllerTemplatesapi = (modelName)=>{
 
 
     let modelNameLower = modelName.toLowerCase();
@@ -11,10 +11,10 @@ const renderControllerTemplatemejs = (modelName)=>{
     let controllertemplate = `
 
 
-    we render for mongoose 
+    we render for sequelize
 
 
-    for api with ejs rendering
+    for api 
 
     with pagination type == ?
    
@@ -28,4 +28,4 @@ const renderControllerTemplatemejs = (modelName)=>{
 }
 
 
-module.exports = {renderControllerTemplatemejs}
+module.exports = {renderControllerTemplatesapi}
