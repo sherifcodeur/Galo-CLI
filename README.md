@@ -122,3 +122,14 @@ example : `galo controller User mongoose api skip`
 
 * for rendering with ejs rendering
 
+
+## command: route
+
+usage: **galo route modelName typeofcrud**
+
+* modelName: name of the model for which you create the routes
+
+* typeofcrud: type of CRUD api or ejs
+
+example :`galo route User api`
+

@@ -5,6 +5,7 @@ const modelutils = require('../utils/model')
 const {createServer} = require('../utils/server')
 const {createDatabase} = require('../utils/database')
 const { createController } = require('../utils/controller')
+const {createRoute} = require('../utils/route')
 
 
 // command to create a model
@@ -73,7 +74,20 @@ yargs.command('controller <nameofmodel> [typedb] [typeofcrud] [paginationtype]',
 
 })
 
+// command to create routes for a model
+yargs.command('route <nameOfModel> <typeofcrud>', 'create the routes for a model or ressource', (yargs) => {
+  yargs.positional('nameOfModel', {
+    describe: 'name of model for which we want to create the routes',
+    type: 'string'     
+    })
+    yargs.positional('typeofcrud', {
+      describe: 'the type fo crud for which we create routes : api or ejs',
+      type: 'string'     
+      })
+ },(argv) => {
+  createRoute(argv.nameOfModel,argv.typeofcrud)
 
+}) 
 
 .help()
     .alias('h','help')
