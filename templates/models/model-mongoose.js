@@ -63,6 +63,12 @@ const renderModelTemplateMongoose = (modelName , fields=null) =>{
     //importing external dependencies
     const mongoose = require('mongoose');
 
+    //for cursor pagination
+    //const MongoPaging = require('mongo-cursor-pagination');
+
+    // for using unique validator (example unique email)
+    //const uniqueValidator = require('mongoose-unique-validator');
+
 
 
     // creating ${modelName} Schema
@@ -75,6 +81,14 @@ const renderModelTemplateMongoose = (modelName , fields=null) =>{
         // Make Mongoose use Unix time (seconds since Jan 1, 1970)
         { timestamps: true }
     );
+
+
+    // this will add cursor paginate function.
+    // ${modelNameLower}Schema.plugin(MongoPaging.mongoosePlugin);
+
+    // for unique validation such as email
+    // ${modelNameLower}Schema.plugin(uniqueValidator);
+
 
 
     // creating model ${modelName} based on the ${modelNameLower} schema

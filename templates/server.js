@@ -50,6 +50,9 @@ const renderServerTemplate = (typedb) =>{
     
     // initializing express application
     const app = express();
+
+    // if you want to use ejs view engine uncomment but install : npm i ejs
+    //app.set('view engine','ejs')
     
   ${connect}
     

@@ -63,7 +63,7 @@ const renderControllerTemplatemejs = (modelName)=>{
         ${modelName}.findById(theid)
             .then(result => {
     
-                res.render(`+"`./products/show`"+`, {
+                res.render('./${modelNameLowerPlurar}/show', {
                     the${modelNameLower}: result
                 });
     
@@ -80,7 +80,7 @@ const renderControllerTemplatemejs = (modelName)=>{
         ${modelName}.findById(theid)
             .then(result => {
     
-                res.render(`+"`./products/edit`"+`, {
+                res.render('./${modelNameLowerPlurar}/edit', {
                     the${modelNameLower}: result
                 });
     

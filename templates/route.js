@@ -12,7 +12,7 @@ const renderRouteTemplate = (modelName,typeofcrud)=>{
         template = `// all routes for ${modelName} Model
         const express = require('express');
         const router = express.Router();
-        const ${modelNameLower}Controller = require('../controllers/${modelName}');
+        const ${modelNameLower}Controller = require('../controllers/${modelName}Controller');
         
         
         
@@ -39,11 +39,31 @@ const renderRouteTemplate = (modelName,typeofcrud)=>{
 
     if(typeofcrud =="ejs"){
 
-        template = `
+        template = `// all routes for ${modelName} Model
+        const express = require('express');
+        const router = express.Router();
+        const ${modelNameLower}Controller = require('../controllers/${modelName}Controller');
         
         
         
-        the routes   `
+        
+        router.get('/', ${modelNameLower}Controller.index)
+
+        router.get('/create', ${modelNameLower}Controller.create)
+        
+        router.post('/', ${modelNameLower}Controller.store)
+        
+        router.get('/show/:id',${modelNameLower}Controller.show)
+
+        router.get('/edit/:id',${modelNameLower}Controller.edit)
+        
+        router.put('/update/:id',${modelNameLower}Controller.update)
+        
+        router.delete('/delete/:id',${modelNameLower}Controller.destroy)
+        
+        router.get('/search',${modelNameLower}Controller.search)
+        
+        module.exports = router ; `
             
             
             

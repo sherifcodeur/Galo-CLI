@@ -1,4 +1,5 @@
 const {createFile} = require('./filesystem')
+const fs = require('fs')
 
 const {renderRouteTemplate} = require('../templates/route')
 
