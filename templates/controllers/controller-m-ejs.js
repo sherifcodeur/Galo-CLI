@@ -16,7 +16,9 @@ const renderControllerTemplatemejs = (modelName)=>{
     // importing the ${modelName} model
     const ${modelName} = require('../models/${modelName}.js');
     
-    
+
+    // change it with the path to your admin urls
+    let path = '/admin'
     
     // shows all ${modelNameLower}
     const index = (req, res) => {
@@ -47,7 +49,7 @@ const renderControllerTemplatemejs = (modelName)=>{
         // console.log(req.body.name);
         let new${modelName} = new ${modelName}(req.body);
     
-        new${modelName}.save().then(res.redirect('/${modelNameLowerPlurar}')).catch(err => console.log(err.message));
+        new${modelName}.save().then(res.redirect('${path}/${modelNameLowerPlurar}')).catch(err => console.log(err.message));
     
     
     
@@ -99,7 +101,7 @@ const renderControllerTemplatemejs = (modelName)=>{
         ${modelName}.findByIdAndUpdate(theid, req.body).then(result => {
     
     
-            res.redirect('/${modelNameLowerPlurar}');
+            res.redirect('${path}/${modelNameLowerPlurar}');
         }).catch(err => console.log(err));
     
     
@@ -114,7 +116,7 @@ const renderControllerTemplatemejs = (modelName)=>{
     
         ${modelName}.findByIdAndDelete(theid).then(result => {
     
-            res.redirect('/${modelNameLowerPlurar}');
+            res.redirect('${path}/${modelNameLowerPlurar}');
         }).catch(err => console.log(err));
     
     
