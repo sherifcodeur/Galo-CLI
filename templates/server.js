@@ -37,6 +37,9 @@ const renderServerTemplate = (typedb) =>{
     // importing dependencies
     const express = require('express');
     const dotenv = require('dotenv').config();
+
+    // for overriding methods in form for put and delete
+    const methodOverride = require('method-override');    
     
 
     ${dbtext}
@@ -51,6 +54,9 @@ const renderServerTemplate = (typedb) =>{
     // initializing express application
     const app = express();
 
+    //middleware for overriding form method
+    app.use(methodOverride('_method'));
+
     // if you want to use ejs view engine uncomment but install : npm i ejs
     //app.set('view engine','ejs')
     
@@ -59,6 +65,10 @@ const renderServerTemplate = (typedb) =>{
     
     
     // Request payload middleware
+
+    //to use the public folder
+    //app.use(express.static('public'));
+
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }))
     
@@ -66,6 +76,8 @@ const renderServerTemplate = (typedb) =>{
     // Handle custom routes - add the custom routes
     // app.use('/api/v1/user', require('./routes/userRoutes'))
     //app.use('/api/companies',companyRoutes);
+
+    //app.use('/admin/artists',artistRoutes);
     
     
     // checks if server is working

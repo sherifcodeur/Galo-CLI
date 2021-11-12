@@ -6,6 +6,7 @@ const {createServer} = require('../utils/server')
 const {createDatabase} = require('../utils/database')
 const { createController } = require('../utils/controller')
 const {createRoute} = require('../utils/route')
+const {createCrudGenerator} = require('../utils/crudgenerator')
 
 
 // command to create a model
@@ -86,6 +87,18 @@ yargs.command('route <nameOfModel> <typeofcrud>', 'create the routes for a model
       })
  },(argv) => {
   createRoute(argv.nameOfModel,argv.typeofcrud)
+
+}) 
+
+
+// command to create crud generator for a model
+yargs.command('crud <nameOfModel>', 'create the crud generator a model or ressource', (yargs) => {
+  yargs.positional('nameOfModel', {
+    describe: 'name of model',
+    type: 'string'     
+    })    
+ },(argv) => {
+  createCrudGenerator(argv.nameOfModel)
 
 }) 
 
