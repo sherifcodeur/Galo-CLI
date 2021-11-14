@@ -7,6 +7,8 @@ const renderControllerTemplatemejs = (modelName)=>{
 
     let modelNameLower = modelName.toLowerCase();
     let modelNameLowerPlurar = modelNameLower+'s';
+    let dollar = "$"
+    let backtick = "`"
 
     let controllertemplate = `
     // ${modelName} Controller
@@ -23,7 +25,10 @@ const renderControllerTemplatemejs = (modelName)=>{
 
 
     // shows all ${modelNameLower}
-    const index = (req, res) => {
+    const index = async (req, res) => {
+
+
+        /// simplest way 
     
         // ${modelName}.find().then((result) => {
     
@@ -37,24 +42,10 @@ const renderControllerTemplatemejs = (modelName)=>{
 
         ///////////////
 
-        // this code is to fetch all ${modelNameLowerPlurar} without pagination--------------
-        // try {
-        //     const all${modelNameLowerPlurar} = await Company.find();
-        //     if(! all${modelNameLowerPlurar}){
-        //        // there is nothing to show but success
-        //         res.status(200).send(response);
-        //     }else{
-        //         // we show all ${modelNameLowerPlurar}
-        //         res.status(200).send(all${modelNameLowerPlurar});
-        //     }        
-        // } catch (error) {
-        //     // there is an error we send status 500
-        //     res.status(500).send(error);        
-        // }
-        // end without pagination--------------------------
-    
-    
-        // // pagination with skip limit method no need of plugins--------------------
+
+
+
+        // pagination with skip limit method no need of plugins--------------------
         // try {
     
         //     // the page size , how many rows we want
@@ -72,28 +63,34 @@ const renderControllerTemplatemejs = (modelName)=>{
         //         limit = 5
         //     }
     
-        //     const all${modelNameLowerPlurar} = await Company.find()
+        //     const all${modelNameLowerPlurar} = await ${modelName}.find()
         //                                     .skip(offset)
         //                                     .limit(limit)
-        //     const companiesCount= await ${modelName}.count();
+        //     const ${modelNameLowerPlurar}Count= await ${modelName}.count();
     
         //     const totalPages = Math.ceil(${modelNameLowerPlurar}Count/limit)
         //     const currentPage = Math.ceil(offset / limit)+1
     
-        //     res.status(200).send({
-        //         data:all${modelNameLowerPlurar},
+
+        //     res.render('./${modelNameLowerPlurar}/index', {
+        
+        //         all${modelNameLowerPlurar}: all${modelNameLowerPlurar},
         //         paging:{
-        //             total:${modelNameLowerPlurar}Count,
-        //             page:currentPage,
-        //             pages:totalPages
-        //         }
-        //     })        
+        //            total:${modelNameLowerPlurar}Count,
+        //            page:currentPage,
+        //            pages:totalPages
+        //        }
+
+        //    });    
+
         // } catch (error) {
         //     console.log("error",error)
         //     res.status(500).send({data:null})        
         // }
     
         // // end of pagination with skip limit--------------------------
+
+
     
     
     
@@ -113,7 +110,7 @@ const renderControllerTemplatemejs = (modelName)=>{
         // console.log(req.body.name);
         let new${modelName} = new ${modelName}(req.body);
     
-        new${modelName}.save().then(res.redirect('${path}/${modelNameLowerPlurar}')).catch(err => console.log(err.message));
+        new${modelName}.save().then(res.redirect(${backtick}${dollar}{path}/${modelNameLowerPlurar}${backtick})).catch(err => console.log(err.message));
     
     
     
@@ -165,7 +162,7 @@ const renderControllerTemplatemejs = (modelName)=>{
         ${modelName}.findByIdAndUpdate(theid, req.body).then(result => {
     
     
-            res.redirect('${path}/${modelNameLowerPlurar}');
+            res.redirect(${backtick}${dollar}{path}/${modelNameLowerPlurar}${backtick});
         }).catch(err => console.log(err));
     
     
@@ -180,7 +177,7 @@ const renderControllerTemplatemejs = (modelName)=>{
     
         ${modelName}.findByIdAndDelete(theid).then(result => {
     
-            res.redirect('${path}/${modelNameLowerPlurar}');
+            res.redirect(${backtick}${dollar}{path}/${modelNameLowerPlurar}${backtick});
         }).catch(err => console.log(err));
     
     
