@@ -20,17 +20,81 @@ const renderControllerTemplatemejs = (modelName)=>{
     // change it with the path to your admin urls
     let path = '/admin'
     
+
+
     // shows all ${modelNameLower}
     const index = (req, res) => {
     
-        ${modelName}.find().then((result) => {
+        // ${modelName}.find().then((result) => {
     
-            //console.log(result);
-            res.render('./${modelNameLowerPlurar}/index', {
+        //     //console.log(result);
+        //     res.render('./${modelNameLowerPlurar}/index', {
     
-                all${modelNameLowerPlurar}: result
-            });
-        }).catch(err => console.log(err));
+        //         all${modelNameLowerPlurar}: result
+        //     });
+        // }).catch(err => console.log(err));
+
+
+        ///////////////
+
+        // this code is to fetch all ${modelNameLowerPlurar} without pagination--------------
+        // try {
+        //     const all${modelNameLowerPlurar} = await Company.find();
+        //     if(! all${modelNameLowerPlurar}){
+        //        // there is nothing to show but success
+        //         res.status(200).send(response);
+        //     }else{
+        //         // we show all ${modelNameLowerPlurar}
+        //         res.status(200).send(all${modelNameLowerPlurar});
+        //     }        
+        // } catch (error) {
+        //     // there is an error we send status 500
+        //     res.status(500).send(error);        
+        // }
+        // end without pagination--------------------------
+    
+    
+        // // pagination with skip limit method no need of plugins--------------------
+        // try {
+    
+        //     // the page size , how many rows we want
+        //     let limit = parseInt(req.query.limit);
+        //     //console.log("la limit",limit)
+    
+        //     //how many rows to skip before showing
+        //     let offset = parseInt(req.query.offset);
+        //     //console.log("offset",offset)
+    
+        //     if(!offset){           
+        //         offset = 0  }
+    
+        //     if(!limit){
+        //         limit = 5
+        //     }
+    
+        //     const all${modelNameLowerPlurar} = await Company.find()
+        //                                     .skip(offset)
+        //                                     .limit(limit)
+        //     const companiesCount= await ${modelName}.count();
+    
+        //     const totalPages = Math.ceil(${modelNameLowerPlurar}Count/limit)
+        //     const currentPage = Math.ceil(offset / limit)+1
+    
+        //     res.status(200).send({
+        //         data:all${modelNameLowerPlurar},
+        //         paging:{
+        //             total:${modelNameLowerPlurar}Count,
+        //             page:currentPage,
+        //             pages:totalPages
+        //         }
+        //     })        
+        // } catch (error) {
+        //     console.log("error",error)
+        //     res.status(500).send({data:null})        
+        // }
+    
+        // // end of pagination with skip limit--------------------------
+    
     
     
     }
