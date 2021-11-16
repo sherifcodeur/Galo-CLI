@@ -27,6 +27,7 @@ Depending on the database you want to use you might need to do some initializati
 - Make the package.json with `npm init`
 - Install some important libraries `npm install express dotenv pluralize method-override`
 - install mongoose with `npm install mongoose`
+- if needed install ejs : `npm i ejs`
 - Create the server file : _see the server command_
 - Create the database connection file _see the database command_
 - create the special files : gitignore readme and env files
@@ -39,6 +40,7 @@ Depending on the database you want to use you might need to do some initializati
 - Make the package.json with `npm init`
 - Install some important libraries `npm install express dotenv pluralize method-override`
 - install sequelize with `npm install sequelize`
+- if needed install ejs : `npm i ejs`
 - you need to initialize sequelize : `npx sequelize-cli init`
 - Create the server file : _see the server command_
 
