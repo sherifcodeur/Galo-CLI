@@ -45,11 +45,11 @@ const renderRouteTemplate = (modelName,typeofcrud)=>{
         const ${modelNameLower}Controller = require('../controllers/${modelName}Controller');
         
         
-        
+        router.get('/create', ${modelNameLower}Controller.create)
         
         router.get('/:page?', ${modelNameLower}Controller.index)
 
-        router.get('/create', ${modelNameLower}Controller.create)
+        
         
         router.post('/', ${modelNameLower}Controller.store)
         

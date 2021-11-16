@@ -10,8 +10,8 @@ const renderCrudGeneratorTemplate = (modelName)=>{
 
     let generatortemplate = `
 
-    // pour generer le crud faire:    node .\crudgenerators\\${modelName}CrudGenerator.js
-        on a un crud generator pour ${modelName}
+    // pour generer le crud faire:    node .\\crudgenerators\\${modelName}CrudGenerator.js
+    //    on a un crud generator pour ${modelName}
 
         const ${modelName} = require('../models/${modelName}')
 
