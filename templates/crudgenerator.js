@@ -49,7 +49,7 @@ const beginformcard = function(formtag){
                     <h3 class="card-title">Quick Example</h3>
             </div>
 
-            ${formtag}
+            ${dollar}{formtag}
             <div class="card-body">
 
             ${backtick}
@@ -92,7 +92,7 @@ function createTableth(){
             if(element.options.generator.includes("i")){
         
         
-               tableths += ${backtick}<th rowspan="1" colspan="1">${element.path}</th>${backtick}      
+               tableths += ${backtick}<th rowspan="1" colspan="1">${dollar}{element.path}</th>${backtick}      
                        }
         
                        }
@@ -108,7 +108,7 @@ function createTabletd(){
 
         let tabletds = ${backtick}${backtick}
 
-        tabletds += ${backtick}<% all${lowerModelNameplural}.forEach(${lowerModelName}=>{ %>${backtick}
+        tabletds += ${backtick}<% all${dollar}{lowerModelNameplural}.forEach(${dollar}{lowerModelName}=>{ %>${backtick}
 
         tabletds += '<tr>'
 
@@ -121,7 +121,7 @@ function createTabletd(){
                         if(element.options.generator.includes("i")){
 
 
-                                tabletds +=${backtick}<td><%= ${lowerModelName}.${element.path} %></td>${backtick}      
+                                tabletds +=${backtick}<td><%= ${dollar}{lowerModelName}.${dollar}{element.path} %></td>${backtick}      
                         }
 
                 }
@@ -129,7 +129,7 @@ function createTabletd(){
 
                         
 
-        tabletds += ${backtick}<td><a href="/admin/${lowerModelNameplural}/show/<%= ${lowerModelName}.id %>"  type="button" class="btn btn-xs btn-block bg-gradient-primary">Show</a></td><td><a href="/admin/${lowerModelNameplural}/edit/<%= ${lowerModelName}.id %>"  type="button" class="btn btn-xs btn-block bg-gradient-primary">Edit</a></td><td><button onclick="destroy('<%= ${lowerModelName}.id %>')" type="button" class="btn btn-xs btn-block bg-gradient-danger">Delete</button></td>${backtick}
+        tabletds += ${backtick}<td><a href="/admin/${dollar}{lowerModelNameplural}/show/<%= ${dollar}{lowerModelName}.id %>"  type="button" class="btn btn-xs btn-block bg-gradient-primary">Show</a></td><td><a href="/admin/${dollar}{lowerModelNameplural}/edit/<%= ${dollar}{lowerModelName}.id %>"  type="button" class="btn btn-xs btn-block bg-gradient-primary">Edit</a></td><td><button onclick="destroy('<%= ${dollar}{lowerModelName}.id %>')" type="button" class="btn btn-xs btn-block bg-gradient-danger">Delete</button></td>${backtick}
 
         tabletds += ${backtick}</tr>${backtick}
 
@@ -221,7 +221,7 @@ function createIndexTable(){
 
          console.log("clicked")
 
-         return fetch(${dollar}{backtik}/admin/${lowerModelNameplural}/delete/${dollar}{dollar}{id}${dollar}{backtik},{method:'DELETE'}).then(res=> {
+         return fetch(${dollar}{backtik}/admin/${dollar}{lowerModelNameplural}/delete/${dollar}{dollar}{id}${dollar}{backtik},{method:'DELETE'}).then(res=> {
            
           window.location.href ='/admin/${dollar}{lowerModelNameplural}'
          }).catch(err=> console.log(err))
@@ -264,7 +264,7 @@ function createCreateForm(){
     let theform = ${backtick}${backtick}
 
     theform += before
-    theform += beginformcard(${backtick}<form action="/admin/${lowerModelNameplural}" method="POST">${backtick})
+    theform += beginformcard(${backtick}<form action="/admin/${dollar}{lowerModelNameplural}" method="POST">${backtick})
 
 
 
@@ -299,7 +299,7 @@ function createCreateForm(){
 
  
 
-                            fs.writeFile(${backtick}views/${lowerModelNameplural}/create.ejs${backtick}, theform ,(err)=>{
+                            fs.writeFile(${backtick}views/${dollar}{lowerModelNameplural}/create.ejs${backtick}, theform ,(err)=>{
 
                                 if(err){
 
@@ -427,7 +427,7 @@ function inputtextfieldtemplate(nameoffield,typeofForm) {
         
         return ${backtick}
                         <div class="form-group">
-                                <label for="${nameoffield}">${nameoffield}:</label>
+                                <label for="${dollar}{nameoffield}">${dollar}{nameoffield}:</label>
                                 <input type="text" class="form-control" id="${dollar}{nameoffield}" name="${dollar}{nameoffield}" ${dollar}{val}>
                         </div>
 
