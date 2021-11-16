@@ -474,7 +474,7 @@ function inputpasswordfieldtemplate(nameoffield,typeofForm) {
         return  ${backtick}
                         <div class="form-group">
                                 <label for="${dollar}{nameoffield}">${dollar}{nameoffield}:</label>
-                                <input type="password" class="form-control" id="${dollar}{nameoffield}" name="${dollar}{nameoffield}" ${val}>
+                                <input type="password" class="form-control" id="${dollar}{nameoffield}" name="${dollar}{nameoffield}" ${dollar}{val}>
                         </div>
 
                         ${backtick}}
