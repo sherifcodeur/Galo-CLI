@@ -64,9 +64,23 @@ you have two choices for your database : **mongoose** or **sequelize**
 
 the fields for the schema has to be entered in the form : nameoffield-typeoffield-requiredfield
 
+**type of fields possible in mongoose** :
+- string
+- number
+- date
+- buffer
+- boolean
+- mixed
+- ObjectId
+- Array
+- Decimal128
+- Map
+- Schema
+
+
 example of command: `galo model User mongoose firstName-string-true email-string-true age-number-false`
 
-after that you need to add informations to the model file if you intend to use the crud generator:
+after that you need to add informations to the model fields **if you intend to use the crud generator**:
 
 
 ### for sequelize 
