@@ -66,6 +66,9 @@ the fields for the schema has to be entered in the form : nameoffield-typeoffiel
 
 example of command: `galo model User mongoose firstName-string-true email-string-true age-number-false`
 
+after that you need to add informations to the model file if you intend to use the crud generator:
+
+
 ### for sequelize 
 
 the fields for the schema has to be entered in the form : nameoffield:typeoffield
