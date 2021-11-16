@@ -43,9 +43,31 @@ const renderControllerTemplatemejs = (modelName)=>{
         ///////////////
 
 
+        // pagination with skip limit
+        var perPage = 5
+        var page = req.params.page || 1
+    
+         ${modelName}
+            .find({})
+            .skip((perPage * page) - perPage)
+            .limit(perPage)
+            .exec(function(err, ${modelNameLowerPlurar}) {
+            ${modelName}.count().exec(function(err, count) {
+                     if (err) return next(err)
+                    res.render('./${modelNameLowerPlurar}/index', {
+                         all${modelNameLowerPlurar}: ${modelNameLowerPlurar},
+                        current: page,
+                         pages: Math.ceil(count / perPage),
+                         total:count
+                    })
+                })
+            })
+        // -----------------------------
 
 
-        // pagination with skip limit method no need of plugins--------------------
+
+
+        // pagination with skip limit method no need of plugins to use may be with api instead of ejs--------------------
         // try {
     
         //     // the page size , how many rows we want

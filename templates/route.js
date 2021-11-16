@@ -47,7 +47,7 @@ const renderRouteTemplate = (modelName,typeofcrud)=>{
         
         
         
-        router.get('/', ${modelNameLower}Controller.index)
+        router.get('/:page?', ${modelNameLower}Controller.index)
 
         router.get('/create', ${modelNameLower}Controller.create)
         
