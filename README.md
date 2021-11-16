@@ -83,6 +83,14 @@ example of command: `galo model User mongoose firstName-string-true email-string
 after that you need to add informations to the model fields **if you intend to use the crud generator**:
 
 
+- generator:"i c s e",
+- fieldType: "text"
+
+for the generator you have 4 possibilities : i for index , c for controller , s for store , e for edit
+
+for the fieldType : you have several choices : text , textarea , password , email , select
+
+
 ### for sequelize 
 
 the fields for the schema has to be entered in the form : nameoffield:typeoffield
