@@ -160,3 +160,15 @@ usage: **galo route modelName typeofcrud**
 
 example :`galo route User api`
 
+## command: Auth
+
+usage **galo auth typeofdb**
+
+create an auth with login register admin Panel
+
+* typeofdb: type of CRUD mongoose or sequelize
+
+**for the moment creates only for mongoose project with ejs**
+
+example : `galo auth mongoose`
+

@@ -7,6 +7,7 @@ const {createDatabase} = require('../utils/database')
 const { createController } = require('../utils/controller')
 const {createRoute} = require('../utils/route')
 const {createCrudGenerator} = require('../utils/crudgenerator')
+const {createAuth} = require('../utils/auth')
 
 
 // command to create a model
@@ -99,6 +100,17 @@ yargs.command('crud <nameOfModel>', 'create the crud generator a model or ressou
     })    
  },(argv) => {
   createCrudGenerator(argv.nameOfModel)
+
+}) 
+
+// command to create an auth
+yargs.command('auth <typeofdb>', 'create an auth with dashboard and login register', (yargs) => {
+  yargs.positional('typeofdb', {
+    describe: 'type of database',
+    type: 'string'     
+    })    
+ },(argv) => {
+  createAuth(argv.typeofdb)
 
 }) 
 
