@@ -172,3 +172,7 @@ create an auth with login register admin Panel
 
 example : `galo auth mongoose`
 
+install the following libraries
+
+`npm install validator bcrypt`
+

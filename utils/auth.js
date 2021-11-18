@@ -2,7 +2,7 @@
 const {createFile} = require('./filesystem')
 const fs = require('fs')
 
-const modelUserTemplate = require('../templates/auth/modeluser')
+const {modeluser} = require('../templates/auth/modeluser')
 
 
 
@@ -48,10 +48,10 @@ createModelUser()
 
 function createModelUser(){
 
-    createFile(`${User}.js`,"models").then(res=>{
+    createFile(`User.js`,"models").then(res=>{
 
 
-        fs.writeFile(`models/${User}.js`,modelUserTemplate(),(err)=>{
+        fs.writeFile(`models/User.js`,modeluser(),(err)=>{
 
             if(err){
 
